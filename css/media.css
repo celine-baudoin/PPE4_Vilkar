@@ -1,0 +1,81 @@
+@media screen and (max-width:800px) {
+    body {
+        grid-template-rows: 60px 60px auto 75px !important;
+        grid-template-columns: auto auto !important;
+      }
+    
+    #headerLateral {
+        display: none !important;
+    }
+    
+    #navLaterale {
+        display: none !important;
+    }
+    
+    nav {
+        grid-column: 1/3 !important;
+        grid-row: 1 !important;
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        width: 100% !important;
+        background-color: black;
+    }
+    
+    nav a {
+        padding: 20px;
+    }
+    
+    nav h1, .icon {
+        color: white !important;
+        
+    }
+    
+    nav a:not(:first-of-type) {
+        display: none !important;
+    }
+    
+    .icon {
+        display: block !important;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+    
+    .navig.responsive {
+        position: fixed;
+        height: 400px;
+        display: flex;
+        flex-direction: column !important;
+        background-color: black;
+        justify-content: unset;
+        align-items: unset;
+    }
+    
+    .navig.responsive a {
+        float: none;
+        display: block !important;
+        text-align: left;
+        color: white;
+    }
+    
+    #headerPage {
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+    }
+    
+    #espaceMembre {
+        grid-column: 2 !important;
+        grid-row: 2 !important;
+    }
+    
+    #ensemble {
+        grid-column: 1/3 !important;
+        grid-row: 3 !important;
+    }
+    
+    footer {
+        grid-column: 1/3 !important;
+        grid-row: 4 !important;
+    }
+}

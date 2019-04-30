@@ -38,9 +38,12 @@ if(isset($_POST['form_connexion']))
         <?php require_once("includes/head.php")?>
     </head>
     <body>
-        <?php require_once("includes/header.php")?>
-        <?php require_once("includes/nav.php")?>
-        <?php require_once("includes/navig.php")?>
+        <?php require_once("includes/includes.php")?>
+        
+        <div id="headerPage">
+            <h3>Connexion</h3>
+        </div>        
+
         <div id="ensemble">
         <h2>Connexion</h2>
             <br /><br />
@@ -51,6 +54,9 @@ if(isset($_POST['form_connexion']))
 
 
             </form>
+            
+            <p>Pas encore de compte ? <a href="inscription.php">Inscrivez-vous !</a></p>
+            
             <?php
             if (isset($message))
             {
@@ -58,6 +64,6 @@ if(isset($_POST['form_connexion']))
             }
             ?>
         </div>
-        <?php require_once("includes/footer.php")?>
+
     </body>
 </html>

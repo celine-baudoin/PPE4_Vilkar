@@ -39,9 +39,11 @@ $bdd = new PDO('mysql:host=localhost;dbname=vilkar', 'root', '');
         <?php require_once("includes/head.php")?>
     </head>
     <body>
-        <?php require_once("includes/header.php")?>
-        <?php require_once("includes/nav.php")?>
-        <?php require_once("includes/navig.php")?>
+        <?php require_once("includes/includes.php")?>
+        
+        <div id="headerPage">
+            <h3>Inscription</h3>
+        </div>
 
         <div id="ensemble">
             <h2>Inscription</h2>
@@ -121,6 +123,5 @@ $bdd = new PDO('mysql:host=localhost;dbname=vilkar', 'root', '');
             }
             ?>
         </div>
-        <?php require_once("includes/footer.php")?>
     </body>
 </html>
