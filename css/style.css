@@ -38,7 +38,7 @@ a,p,h1,h2,h3,h4,h5,h6
 {
     color: black;
     margin: 0;
-    
+
 }
 
 /** En-tête latéral **/
@@ -96,6 +96,38 @@ nav, .icon {
     grid-row: 2;
     padding: 20px;
     /*background-color: orange;*/
+}
+
+#ensemble img {
+  width: 200px;
+}
+
+#ensemble {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.produit {
+  margin: 20px;
+  border: 2px solid #EFEFEF;
+  width: 300px;
+}
+
+.produit p {
+  margin: 0;
+  padding: 10px;
+}
+
+.produit img {
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  background-color: #EFEFEF;
 }
 
 footer {
