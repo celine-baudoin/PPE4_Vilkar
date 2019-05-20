@@ -4,8 +4,9 @@ $bdd = new PDO('mysql:host=localhost;dbname=vilkar;charset=utf8', 'root', '');
 if(isset($_GET['Id_Produit']) AND !empty($_GET['Id_Produit']))
 {
     $get_id = htmlspecialchars($_GET['Id_Produit']);
-    $article = $bdd->prepare('SELECT * FROM produits WHERE Id_Produit = ?');
+    $article = $bdd->prepare('SELECT * FROM produits INNER JOIN images ON produits.Id_Image_Pro = images.Id_Image INNER JOIN types ON produits.Id_Type_Pro = types.Id_Type INNER JOIN membres ON produits.Id_Membre_Pro = membres.Id_Membre WHERE Produits.Id_Produit = ?');
     $article->execute(array($get_id));
+
 
     if($article->rowCount() == 1)
     {
@@ -13,7 +14,6 @@ if(isset($_GET['Id_Produit']) AND !empty($_GET['Id_Produit']))
         $libelle = $article['Libelle_Produit'];
         $description = $article['Description'];
         $prix = $article['Prix'];
-
     }
     else
     {
@@ -24,6 +24,13 @@ else
 {
     die('Erreur');
 }
+
+
+
+$commentaires = $bdd->query('SELECT * FROM commentaires INNER JOIN membres ON commentaires.Id_Membre_Comment = membres.Id_Membre INNER JOIN produits ON commentaires.Id_Produit_Comment = produits.Id_Produit WHERE Produits.Id_Produit ='.$get_id);
+$donnees = $commentaires->fetchAll();
+//var_dump($donnees[0]['Id_Commentaire']);
+//exit();
 ?>
 
 
@@ -38,9 +45,35 @@ else
   </div>
 
   <div id="ensemble">
-    <h1><?= $libelle ?></h1>
-    <p><?= $description ?></p>
-    <p><?= $prix ?></p>
+    <div id="ensembleFicheProduit">
+      <h1><?= $libelle ?></h1>
+      <img src="<?php echo $article['Lien_Image'] ?>" alt="Image produit"/>
+      <p><?= $description ?></p>
+      <p><?= $prix ?></p>
+      <div class="commentaire">
+        <h2>Posez une question au vendeur</h2>
+        <form class="" action="" method="post">
+          <input type="text" name="commentaire"/>
+          <input type="submit" value="Envoyer"/>
+        </form>
+        <?php
+          foreach ($donnees as $row) {
+            if ($row['Id_Membre_Comment'] == $row['Id_Membre_Pro']) { ?>
+            <div class="reponse">
+              <h3 class="objet"><?php echo $row['Objet'] ?></h3>
+              <p><?php echo $row['Texte'] ?></p>
+              <p>Réponse postée le <?php echo $row['DateCom'] ?></p>
+            </div>
+          <?php } else { ?>
+              <div class="question">
+                <h3 class="objet"><?php echo $row['Objet'] ?></h3>
+                <p><?php echo $row['Texte'] ?></p>
+                <p>Question posée par <?php echo $row['Prenom'] ?> le <?php echo $row['DateCom'] ?></p>
+              </div>
+          <?php }
+        } ?>
+      </div>
+    </div>
   </div>
 
 </body>

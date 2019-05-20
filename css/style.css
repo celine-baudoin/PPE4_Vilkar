@@ -109,6 +109,31 @@ nav, .icon {
   justify-content: center;
 }
 
+#ensembleFicheProduit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#ensembleFicheProduit img {
+  width: 300px;
+}
+
+.question {
+  background-color: lightgrey;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.reponse {
+  border: 2px solid gray;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 10px;
+  text-align: right;
+}
+
 .produit {
   margin: 20px;
   border: 2px solid #EFEFEF;
