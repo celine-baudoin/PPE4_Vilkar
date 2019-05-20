@@ -49,11 +49,13 @@ $donnees = $commentaires->fetchAll();
       <h1><?= $libelle ?></h1>
       <img src="<?php echo $article['Lien_Image'] ?>" alt="Image produit"/>
       <p><?= $description ?></p>
-      <p><?= $prix ?></p>
+      <p><?= $prix ?>€ <button type="button" name="ajout_panier">Ajouter au panier</button></p>
+
       <div class="commentaire">
         <h2>Posez une question au vendeur</h2>
-        <form class="" action="" method="post">
-          <input type="text" name="commentaire"/>
+        <form class="" action="fiche_article.php" method="post">
+          <input type="text" name="objet" placeholder="Objet">
+          <input type="text" name="commentaire" placeholder="Commentaire"/>
           <input type="submit" value="Envoyer"/>
         </form>
         <?php

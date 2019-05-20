@@ -116,7 +116,13 @@ nav, .icon {
 }
 
 #ensembleFicheProduit img {
-  width: 300px;
+  width: 400px;
+}
+
+.commentaire {
+  margin: 20px;
+  width: 600px;
+  border-top: 2px solid gray;
 }
 
 .question {
@@ -127,7 +133,7 @@ nav, .icon {
 }
 
 .reponse {
-  border: 2px solid gray;
+  border: 2px solid lightgrey;
   padding: 5px;
   border-radius: 5px;
   margin: 10px;
