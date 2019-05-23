@@ -12,6 +12,7 @@
       <li><a href="pc_portables.php">PC Portables</a></li>
       <li><a href="souris.php">Souris</a></li>
     </ul>
+    <h3><a href="vendre.php">Vendre vos articles</a></h3>
 </div>
 
 <nav class="navig" id="navigationResponsive">

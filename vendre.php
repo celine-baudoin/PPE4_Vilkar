@@ -31,36 +31,41 @@ if(isset($_POST['libelle_produit'], $_POST['description_produit'], $_POST['prix_
 
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Vendre</title>
-    <meta charset="utf-8">
-</head>
+<?php require_once("includes/head.php")?>
 <body>
-    <form method="POST">
-        <input type="text" name="libelle_produit" placeholder="Libelle" /><br />
-        <input type="number" name="type_produit" placeholder="Type" step="1" min="0" max="6" /><br />
-        <p>Merci de bien vouloir mettre le code lié à votre article</p>
-            <ul>
-            <li>Mettez 1 pour un PC fixe</li>
-            <li>Mettez 2 pour un PC Portable</li>
-            <li>Mettez 3 pour un ecran</li>
-            <li>Mettez 4 pour une souris</li>
-            <li>Mettez 5 pour des enceintes</li>
-            <li>Mettez 6 pour un clavier</li>
-        </ul>
+    <?php require_once("includes/includes.php")?>
 
-   <label>Identifiant: </label>
-        <input type="number" name="identifiant" placeholder="Identifiant" value="<?php echo $user['Id_Membre'];?>"/><br /><br />
-        <textarea name="description_produit" placeholder="Description"></textarea><br />
-        <input type="number" name="prix_produit" placeholder="1.0" step="0.50" min="0" max="500"><br />
-        <input type="submit" value="Mettre l'article en vente" />
-    </form>
-    <br />
-    <?php
-        if(isset($message))
-        {
-            echo $message;
-        }
-    ?>
+    <div id="headerPage">
+        <h3>Vendre un article</h3>
+    </div>
+
+    <div id="ensemble">
+      <form method="POST">
+          <input type="text" name="libelle_produit" placeholder="Libelle" /><br />
+          <input type="number" name="type_produit" placeholder="Type" step="1" min="0" max="6" /><br />
+          <p>Merci de bien vouloir mettre le code lié à votre article</p>
+              <ul>
+              <li>Mettez 1 pour un PC fixe</li>
+              <li>Mettez 2 pour un PC Portable</li>
+              <li>Mettez 3 pour un ecran</li>
+              <li>Mettez 4 pour une souris</li>
+              <li>Mettez 5 pour des enceintes</li>
+              <li>Mettez 6 pour un clavier</li>
+          </ul>
+
+          <label>Identifiant: </label>
+          <input type="number" name="identifiant" placeholder="Identifiant" value="<?php echo $user['Id_Membre'];?>"/><br /><br />
+          <textarea name="description_produit" placeholder="Description"></textarea><br />
+          <input type="number" name="prix_produit" placeholder="1.0" step="0.50" min="0" max="500"><br />
+          <input type="submit" value="Mettre l'article en vente" />
+      </form>
+      <br />
+      <?php
+          if(isset($message))
+          {
+              echo $message;
+          }
+      ?>
+    </div>
 </body>
 </html>
