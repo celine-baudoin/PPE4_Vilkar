@@ -10,13 +10,17 @@ if(isset($_GET['Id_Membre'])AND $_GET['Id_Membre'] >0)
     $userinfo = $requser->fetch();
 ?>
 
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Profil</title>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <div align="center">
+<?php require_once("includes/head.php")?>
+<body>
+    <?php require_once("includes/includes.php")?>
+
+    <div id="headerPage">
+        <h3>Accueil</h3>
+    </div>
+
+    <div id="ensemble">
             <h2>Profil de <?php echo $userinfo['Pseudo'];?> </h2>
             <br /><br />
             Bonjour <?php echo $userinfo['Pseudo'];?>

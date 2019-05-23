@@ -14,7 +14,7 @@ require_once("fonctions_panier.php");
         <h3>Enceintes</h3>
     </div>
 
-    <div id="ensemble">
+    <div id="ensemble" class="catalogue">
       <?php
         $produits = $bdd->query('SELECT * FROM produits INNER JOIN images ON produits.Id_Image_Pro = images.Id_Image INNER JOIN types ON produits.Id_Type_Pro = types.Id_Type INNER JOIN membres ON produits.Id_Membre_Pro = membres.Id_Membre WHERE Libelle = "Enceintes"');
         $donnees = $produits->fetchAll();

@@ -26,7 +26,7 @@
 
 <div id="espaceMembre">
     <a href="connexion.php" class="conIcon"><i class="fas fa-sign-in-alt"></i></a>
-    <a href="" class="basketIcon"><i class="fas fa-shopping-basket"></i></a>
+    <a href="panier.php" class="basketIcon"><i class="fas fa-shopping-basket"></i></a>
 </div>
 
 <footer>

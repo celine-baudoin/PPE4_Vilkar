@@ -5,17 +5,17 @@ require_once("fonctions_panier.php");
 
 if(isset($_GET['Id_Produit']) AND !empty($_GET['Id_Produit']))
 {
-    $get_id = htmlspecialchars($_GET['Id_Produit']);
+    $Id_Produit = htmlspecialchars($_GET['Id_Produit']);
     $article = $bdd->prepare('SELECT * FROM produits INNER JOIN images ON produits.Id_Image_Pro = images.Id_Image INNER JOIN types ON produits.Id_Type_Pro = types.Id_Type INNER JOIN membres ON produits.Id_Membre_Pro = membres.Id_Membre WHERE Produits.Id_Produit = ?');
-    $article->execute(array($get_id));
+    $article->execute(array($Id_Produit));
 
 
     if($article->rowCount() == 1)
     {
         $article = $article->fetch();
-        $libelle = $article['Libelle_Produit'];
-        $description = $article['Description'];
-        $prix = $article['Prix'];
+        $Libelle_Produit = $article['Libelle_Produit'];
+        $Description = $article['Description'];
+        $Prix = $article['Prix'];
     }
     else
     {
@@ -29,10 +29,8 @@ else
 
 
 
-$commentaires = $bdd->query('SELECT * FROM commentaires INNER JOIN membres ON commentaires.Id_Membre_Comment = membres.Id_Membre INNER JOIN produits ON commentaires.Id_Produit_Comment = produits.Id_Produit WHERE Produits.Id_Produit ='.$get_id);
+$commentaires = $bdd->query('SELECT * FROM commentaires INNER JOIN membres ON commentaires.Id_Membre_Comment = membres.Id_Membre INNER JOIN produits ON commentaires.Id_Produit_Comment = produits.Id_Produit WHERE Produits.Id_Produit ='.$Id_Produit);
 $donnees = $commentaires->fetchAll();
-//var_dump($donnees[0]['Id_Commentaire']);
-//exit();
 ?>
 
 
@@ -48,10 +46,17 @@ $donnees = $commentaires->fetchAll();
 
   <div id="ensemble">
     <div id="ensembleFicheProduit">
-      <h1><?= $libelle ?></h1>
+      <h1><?= $Libelle_Produit ?></h1>
       <img src="<?php echo $article['Lien_Image'] ?>" alt="Image produit"/>
-      <p><?= $description ?></p>
-      <p><?= $prix ?>€ <button type="button" name="ajout_panier">Ajouter au panier</button></p>
+      <p><?= $Description ?></p>
+      <p><?= $Prix ?>€
+        <form action="fiche_article.php?Id_Produit=<?= $article['Id_Produit'] ?>" method="POST"><input type="submit" name="ajout_panier" value="Ajouter au panier"></form>
+        <?php
+        if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['ajout_panier'])) {
+          ajouterArticle($Id_Produit,$Libelle_Produit,$Prix);
+        }
+        ?>
+      </p>
 
       <div class="commentaire">
         <h2>Posez une question au vendeur</h2>
