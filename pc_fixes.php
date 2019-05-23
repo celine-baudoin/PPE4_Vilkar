@@ -16,9 +16,6 @@ require_once("fonctions_panier.php");
 
     <div id="ensemble">
       <?php
-        session_start();
-        $bdd = new PDO('mysql:host=localhost;dbname=vilkar','root','');
-        $bdd->exec("SET NAMES 'UTF8'");
         $produits = $bdd->query('SELECT * FROM produits INNER JOIN images ON produits.Id_Image_Pro = images.Id_Image INNER JOIN types ON produits.Id_Type_Pro = types.Id_Type INNER JOIN membres ON produits.Id_Membre_Pro = membres.Id_Membre WHERE Libelle = "PC Fixes"');
         $donnees = $produits->fetchAll();
         foreach ($donnees as $row) { ?>
