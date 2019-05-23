@@ -1,7 +1,8 @@
 <?php
+session_start();
+require_once("includes/script.php");
+require_once("fonctions_panier.php");
 
-$bdd = new PDO('mysql:host=localhost;dbname=vilkar', 'root', '');
-    
     if(isset($_POST['forminscription']))
     {
         if(!empty($_POST['mail'])AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']))
@@ -18,14 +19,14 @@ $bdd = new PDO('mysql:host=localhost;dbname=vilkar', 'root', '');
             {
             $insert_membre = $bdd->prepare("INSERT INTO membres(Nom, Prenom, Adresse, Mail, MDP, Pseudo) VALUES(?,?,?,?,?,?)");
             $insert_membre->execute(array($nom, $prenom, $adresse, $mail, $mdp, $pseudo));
-            $message = "Votre compte à bien été crée.";    
+            $message = "Votre compte à bien été crée.";
             }
             else
             {
                 $message = "Le mot de passe n'est pas le même, veuillez recommencer.";
             }
         }
-        
+
         else
         {
         $message = " Tous les champs doivent être complétés.";
@@ -34,13 +35,13 @@ $bdd = new PDO('mysql:host=localhost;dbname=vilkar', 'root', '');
 ?>
 
 <!DOCTYPE html>
-<html>   
+<html>
     <head>
         <?php require_once("includes/head.php")?>
     </head>
     <body>
         <?php require_once("includes/includes.php")?>
-        
+
         <div id="headerPage">
             <h3>Inscription</h3>
         </div>
@@ -97,7 +98,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=vilkar', 'root', '');
                         <td>
                             <input type="password" placeholder="Votre mot de passe de confirmation" id="Mot de passe2" name="mdp2" />
                         </td>
-                    </tr>  
+                    </tr>
                     <tr>
                         <td>
                             <label for="pseudo">Pseudo :</label>

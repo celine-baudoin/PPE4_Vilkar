@@ -1,3 +1,9 @@
+<?php
+session_start();
+require_once("includes/script.php");
+require_once("fonctions_panier.php");
+?>
+
 <!DOCTYPE html>
 <html>
 <?php require_once("includes/head.php")?>

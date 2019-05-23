@@ -1,5 +1,7 @@
 <?php
-$bdd = new PDO('mysql:host=localhost;dbname=vilkar;charset=utf8', 'root', '');
+session_start();
+require_once("includes/script.php");
+require_once("fonctions_panier.php");
 
 if(isset($_GET['Id_Produit']) AND !empty($_GET['Id_Produit']))
 {

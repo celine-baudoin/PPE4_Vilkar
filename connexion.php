@@ -1,6 +1,7 @@
 <?php
 session_start();
-$bdd = new PDO('mysql:host=localhost;dbname=vilkar', 'root', '');
+require_once("includes/script.php");
+require_once("fonctions_panier.php");
 
 if(isset($_POST['form_connexion']))
 {
@@ -33,16 +34,16 @@ if(isset($_POST['form_connexion']))
 ?>
 
 <!DOCTYPE html>
-<html>   
+<html>
     <head>
         <?php require_once("includes/head.php")?>
     </head>
     <body>
         <?php require_once("includes/includes.php")?>
-        
+
         <div id="headerPage">
             <h3>Connexion</h3>
-        </div>        
+        </div>
 
         <div id="ensemble">
         <h2>Connexion</h2>
@@ -54,9 +55,9 @@ if(isset($_POST['form_connexion']))
 
 
             </form>
-            
+
             <p>Pas encore de compte ? <a href="inscription.php">Inscrivez-vous !</a></p>
-            
+
             <?php
             if (isset($message))
             {
