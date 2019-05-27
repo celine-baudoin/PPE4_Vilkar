@@ -70,13 +70,13 @@ $donnees = $commentaires->fetchAll();
             if ($row['Id_Membre_Com'] == $row['Id_Membre_Produit']) { ?>
             <div class="reponse">
               <h3 class="objet"><?php echo $row['Objet_Com'] ?></h3>
-              <p><?php echo $row['Texte_Produit'] ?></p>
+              <p><?php echo $row['Texte_Com'] ?></p>
               <p>Réponse postée le <?php echo $row['Date_Com'] ?></p>
             </div>
           <?php } else { ?>
               <div class="question">
                 <h3 class="objet"><?php echo $row['Objet_Com'] ?></h3>
-                <p><?php echo $row['Texte'] ?></p>
+                <p><?php echo $row['Texte_Com'] ?></p>
                 <p>Question posée par <?php echo $row['Prenom'] ?> le <?php echo $row['Date_Com'] ?></p>
               </div>
           <?php }
