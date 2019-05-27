@@ -56,7 +56,7 @@ require_once("fonctions_panier.php");
                             <label for="nom">Nom :</label>
                         </td>
                         <td>
-                            <input type="text" placeholder="Votre nom" id="nom" name="nom" />
+                            <input type="text" class="texte" placeholder="Votre nom" id="nom" name="nom" />
                         </td>
                     </tr>
                     <tr>
@@ -64,7 +64,7 @@ require_once("fonctions_panier.php");
                             <label for="prenom">Prenom :</label>
                         </td>
                         <td>
-                            <input type="text" placeholder="Votre prénom" id="prenom" name="prenom" />
+                            <input type="text" class="texte" placeholder="Votre prénom" id="prenom" name="prenom" />
                         </td>
                     </tr>
                     <tr>
@@ -72,7 +72,7 @@ require_once("fonctions_panier.php");
                             <label for="adresse">Adresse :</label>
                         </td>
                         <td>
-                            <input type="text" placeholder="Votre adresse" id="adresse" name="adresse" />
+                            <input type="text" class="texte" placeholder="Votre adresse" id="adresse" name="adresse" />
                         </td>
                     </tr>
                     <tr>
@@ -80,7 +80,7 @@ require_once("fonctions_panier.php");
                             <label for="mail">Mail :</label>
                         </td>
                         <td>
-                            <input type="email" placeholder="Votre mail" id="pseudo" name="mail" />
+                            <input type="email" class="texte" placeholder="Votre mail" id="pseudo" name="mail" />
                         </td>
                     </tr>
                     <tr>
@@ -88,7 +88,7 @@ require_once("fonctions_panier.php");
                             <label for="mdp">Mot de passe :</label>
                         </td>
                         <td>
-                            <input type="password" placeholder="Votre mot de passe" id="MDP" name="mdp" />
+                            <input type="password" class="texte" placeholder="Votre mot de passe" id="MDP" name="mdp" />
                         </td>
                     </tr>
                     <tr>
@@ -96,7 +96,7 @@ require_once("fonctions_panier.php");
                             <label for="mdp2">Confirmation de mot de passe :</label>
                         </td>
                         <td>
-                            <input type="password" placeholder="Votre mot de passe de confirmation" id="Mot de passe2" name="mdp2" />
+                            <input type="password" class="texte" placeholder="Votre mot de passe de confirmation" id="Mot de passe2" name="mdp2" />
                         </td>
                     </tr>
                     <tr>
@@ -104,14 +104,14 @@ require_once("fonctions_panier.php");
                             <label for="pseudo">Pseudo :</label>
                         </td>
                         <td>
-                            <input type="text" placeholder="Votre pseudo" id="pseudo" name="pseudo" />
+                            <input type="text" class="texte" placeholder="Votre pseudo" id="pseudo" name="pseudo" />
                         </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td>
                         <br />
-                            <input type="submit" name="forminscription" value="Inscription" />
+                            <input type="submit" class="bouton" name="forminscription" value="Inscription" />
                         </td>
                     </tr>
                 </table>

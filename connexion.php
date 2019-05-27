@@ -48,9 +48,9 @@ if(isset($_POST['form_connexion']))
         <h2>Connexion</h2>
             <br /><br />
             <form method ="POST" action="">
-                <p><input type="email" placeholder="Votre mail" name="mail_connect" /></p>
-                <p><input type="password" placeholder="Votre mot de passe" name="mdp_connect" /></p>
-                <p><input type="submit" value ="Se connecter" name="form_connexion" /></p>
+                <p><input type="email" class="texte" placeholder="Votre mail" name="mail_connect" /></p>
+                <p><input type="password" class="texte" placeholder="Votre mot de passe" name="mdp_connect" /></p>
+                <p><input type="submit" class="bouton" value ="Se connecter" name="form_connexion" /></p>
 
 
             </form>

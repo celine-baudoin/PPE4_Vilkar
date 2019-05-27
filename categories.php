@@ -23,6 +23,7 @@ require_once("fonctions_panier.php");
         <li><a href="pc_fixes.php">PC Fixes</a></li>
         <li><a href="pc_portables.php">PC Portables</a></li>
         <li><a href="souris.php">Souris</a></li>
+        <li><a href="vendre.php">Vendre vos articles</a></li>
       </ul>
     </div>
 

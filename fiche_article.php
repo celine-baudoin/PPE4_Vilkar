@@ -14,12 +14,12 @@ if(isset($_GET['Id_Produit']) AND !empty($_GET['Id_Produit']))
     $Prix_Produit = $Donnees_Produit['Prix_Produit'];
     $commentaires = $bdd->query('SELECT * FROM commentaires INNER JOIN membres ON commentaires.Id_Membre_Com = membres.Id_Membre INNER JOIN produits ON commentaires.Id_Produit_Com = produits.Id_Produit WHERE Produits.Id_Produit ='.$Id_Produit);
     if ($commentaires !== false) {
-        $Donnees_Commentaire = $commentaires->fetchAll();    
+        $Donnees_Commentaire = $commentaires->fetchAll();
     }
-    
 
 
-    
+
+
 }
 else
 {
@@ -54,16 +54,17 @@ if (isset($_POST['comment'])) {
   <?php require_once("includes/includes.php")?>
 
   <div id="headerPage">
-      <h3>Accueil</h3>
+      <h3><?= $Libelle_Produit ?></h3>
   </div>
 
   <div id="ensemble">
     <div id="ensembleFicheProduit">
-      <h1><?= $Libelle_Produit ?></h1>
       <img src="<?php echo $Donnees_Produit['Image_Produit'] ?>" alt="Image produit"/>
       <p><?= $Description_Produit ?></p>
       <p><?= $Prix_Produit ?>€
-        <form action="fiche_article.php?Id_Produit=<?=$Donnees_Produit['Id_Produit'] ?>" method="POST"><input type="submit" name="ajout_panier" value="Ajouter au panier"></form>
+        <form action="fiche_article.php?Id_Produit=<?=$Donnees_Produit['Id_Produit'] ?>" method="POST">
+          <input type="submit" class="bouton" name="ajout_panier" value="Ajouter au panier">
+        </form>
         <?php
         if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['ajout_panier'])) {
           ajouterArticle($Id_Produit,$Libelle_Produit,$Prix_Produit);
@@ -74,9 +75,9 @@ if (isset($_POST['comment'])) {
       <div class="commentaire">
         <h2>Posez une question au vendeur</h2>
         <form class="" action="fiche_article.php?Id_Produit=<?=$Donnees_Produit['Id_Produit'];?>" method="post">
-          <input type="text" name="objet" placeholder="Objet">
-          <input type="text" name="commentaire" placeholder="Commentaire"/>
-          <input type="submit" value="Envoyer" name="comment"/>
+          <input type="text" class="texte" name="objet" placeholder="Objet">
+          <input type="text" class="texte" name="commentaire" placeholder="Commentaire"/>
+          <input type="submit" class="bouton" value="Envoyer" name="comment"/>
         </form>
         <?php
           foreach ($Donnees_Commentaire as $row) {

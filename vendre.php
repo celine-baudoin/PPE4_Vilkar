@@ -56,7 +56,7 @@ if(isset($_POST['vendre'])) {
     <?php require_once("includes/includes.php")?>
 
     <div id="headerPage">
-        <h3>Accueil</h3>
+        <h3>Vendre</h3>
     </div>
     <div id="ensemble">
         <h1>Vendre un article</h1>
@@ -77,8 +77,8 @@ if(isset($_POST['vendre'])) {
                     <td>Prix</td>
                     <td><input type="text" name="prix"></td>
                   </tr>
-                  
-        
+
+
                   <tr>
                     <td>Choisissez le type</td>
                     <td>
@@ -96,7 +96,7 @@ if(isset($_POST['vendre'])) {
                     <td><input type="file" name="fileToUpload" id="fileToUpload"></td>
                   </tr>
                   <tr>
-                    <td><input type="submit" value="Vendre" name="vendre"></td>
+                    <td><input type="submit" class="bouton" value="Vendre" name="vendre"></td>
                   </tr>
                 </table>
               </form>

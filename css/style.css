@@ -17,11 +17,15 @@ body
     min-height: 100%;
     height: 100%;
     display: grid;
-    grid-template-rows: 60px auto 75px;
+    grid-template-rows: 80px auto 100px;
     grid-template-columns: 20% auto auto;
     margin:0 auto;
     padding: 0;
     font-family: 'Raleway', sans-serif;
+}
+
+ul, li {
+  list-style-type: none;
 }
 
 a
@@ -34,11 +38,11 @@ a:hover {
     text-decoration: underline;
 }
 
-a,p,h1,h2,h3,h4,h5,h6
+a,p,h1,h2,h3,h4,h5,h6,.texte,.bouton
 {
     color: black;
     margin: 0;
-
+    font-family: 'Raleway', sans-serif;
 }
 
 /** En-tête latéral **/
@@ -64,7 +68,7 @@ a,p,h1,h2,h3,h4,h5,h6
 
 #navLaterale ul {
   list-style-type: none;
-  padding: 20px 0;
+  padding: 0;
   margin: 0;
 }
 
@@ -106,7 +110,7 @@ nav, .icon {
 }
 
 #ensemble img {
-  width: 200px;
+  width: 300px;
 }
 
 .catalogue {
@@ -115,20 +119,50 @@ nav, .icon {
   justify-content: center;
 }
 
+.ensemble img {
+  width: 200px !important;
+}
+
 #ensembleFicheProduit {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#ensembleFicheProduit img {
-  width: 400px;
+  margin: 10px;
 }
 
 .commentaire {
   margin: 20px;
   width: 600px;
   border-top: 2px solid gray;
+  display: flex;
+  flex-direction: column;
+}
+
+.commentaire form {
+  display: flex;
+}
+
+.texte {
+  width: 100%;
+  border: 2px solid #EFEFEF;
+}
+
+.bouton {
+  background-color: #EFEFEF;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  height: 30px;
+}
+
+.bouton:hover {
+  background-color: grey;
+  color: white;
+}
+
+.commentaire input {
+  height: 25px;
+  margin: 10px;;
 }
 
 .question {
@@ -158,7 +192,7 @@ nav, .icon {
 }
 
 .produit img {
-  width: 300px;
+  width: 200px !important;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -172,4 +206,10 @@ footer {
     grid-column: 2/4;
     grid-row: 3;
     background-color: grey;
+    padding: 20px;
+}
+
+footer p {
+  color: white;
+  font-weight: bold;
 }
