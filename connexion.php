@@ -18,7 +18,6 @@ if(isset($_POST['form_connexion']))
                     $user_info = $requser->fetch();
                     $_SESSION['Id_Membre'] = $user_info['Id_Membre'];
                     $_SESSION['Mail'] = $user_info['Mail'];
-                    $_SESSION['MDP'] = $user_info['MDP'];
                     header("Location: profil.php?Id_Membre=".$_SESSION['Id_Membre']);
                 }
                 else

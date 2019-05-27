@@ -50,14 +50,26 @@ $donnees = $commentaires->fetchAll();
       <img src="<?php echo $article['Image_Produit'] ?>" alt="Image produit"/>
       <p><?= $Description ?></p>
       <p><?= $Prix ?>€
-        <form action="fiche_article.php?Id_Produit=<?= $article['Id_Produit'] ?>" method="POST"><input type="submit" name="ajout_panier" value="Ajouter au panier"></form>
+              <?php
+         if(isset($_SESSION['Id_Membre'])) {
+        ?><form action="fiche_article.php?Id_Produit=<?= $article['Id_Produit'] ?>" method="POST"><input type="submit" name="ajout_panier" value="Ajouter au panier"></form>
+        <?php
+         } else {
+             ?>
+              <p>Vous devez d'abord vous connecter pour pouvoir vendre vos articles. <a href="connexion.php">Connexion</a></p>
+              <p>Pas encore de compte ? <a href="inscription.php">Inscrivez-vous !</a></p>
+              <?php
+         }
+    ?>
         <?php
         if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['ajout_panier'])) {
           ajouterArticle($Id_Produit,$Libelle_Produit,$Prix);
         }
         ?>
       </p>
-
+      <?php
+ if(isset($_SESSION['Id_membre'])) {
+?>
       <div class="commentaire">
         <h2>Posez une question au vendeur</h2>
         <form class="" action="fiche_article.php" method="post">
@@ -82,6 +94,8 @@ $donnees = $commentaires->fetchAll();
           <?php }
         } ?>
       </div>
+          <?php 
+        } ?>
     </div>
   </div>
 
