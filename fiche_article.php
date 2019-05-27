@@ -6,7 +6,7 @@ require_once("fonctions_panier.php");
 if(isset($_GET['Id_Produit']) AND !empty($_GET['Id_Produit']))
 {
     $Id_Produit = htmlspecialchars($_GET['Id_Produit']);
-    $article = $bdd->prepare('SELECT * FROM produits INNER JOIN images ON produits.Id_Image_Pro = images.Id_Image INNER JOIN types ON produits.Id_Type_Pro = types.Id_Type INNER JOIN membres ON produits.Id_Membre_Pro = membres.Id_Membre WHERE Produits.Id_Produit = ?');
+    $article = $bdd->prepare('SELECT * FROM produits INNER JOIN types ON produits.Id_Type_Produit = types.Id_Type INNER JOIN membres ON produits.Id_Membre_Produit = membres.Id_Membre WHERE Produits.Id_Produit = ?');
     $article->execute(array($Id_Produit));
 
 
@@ -14,8 +14,8 @@ if(isset($_GET['Id_Produit']) AND !empty($_GET['Id_Produit']))
     {
         $article = $article->fetch();
         $Libelle_Produit = $article['Libelle_Produit'];
-        $Description = $article['Description'];
-        $Prix = $article['Prix'];
+        $Description = $article['Description_Produit'];
+        $Prix = $article['Prix_Produit'];
     }
     else
     {
@@ -29,7 +29,7 @@ else
 
 
 
-$commentaires = $bdd->query('SELECT * FROM commentaires INNER JOIN membres ON commentaires.Id_Membre_Comment = membres.Id_Membre INNER JOIN produits ON commentaires.Id_Produit_Comment = produits.Id_Produit WHERE Produits.Id_Produit ='.$Id_Produit);
+$commentaires = $bdd->query('SELECT * FROM commentaires INNER JOIN membres ON commentaires.Id_Membre_Com = membres.Id_Membre INNER JOIN produits ON commentaires.Id_Produit_Com = produits.Id_Produit WHERE Produits.Id_Produit ='.$Id_Produit);
 $donnees = $commentaires->fetchAll();
 ?>
 
@@ -47,7 +47,7 @@ $donnees = $commentaires->fetchAll();
   <div id="ensemble">
     <div id="ensembleFicheProduit">
       <h1><?= $Libelle_Produit ?></h1>
-      <img src="<?php echo $article['Lien_Image'] ?>" alt="Image produit"/>
+      <img src="<?php echo $article['Image_Produit'] ?>" alt="Image produit"/>
       <p><?= $Description ?></p>
       <p><?= $Prix ?>€
         <form action="fiche_article.php?Id_Produit=<?= $article['Id_Produit'] ?>" method="POST"><input type="submit" name="ajout_panier" value="Ajouter au panier"></form>
@@ -67,17 +67,17 @@ $donnees = $commentaires->fetchAll();
         </form>
         <?php
           foreach ($donnees as $row) {
-            if ($row['Id_Membre_Comment'] == $row['Id_Membre_Pro']) { ?>
+            if ($row['Id_Membre_Com'] == $row['Id_Membre_Produit']) { ?>
             <div class="reponse">
-              <h3 class="objet"><?php echo $row['Objet'] ?></h3>
-              <p><?php echo $row['Texte'] ?></p>
-              <p>Réponse postée le <?php echo $row['DateCom'] ?></p>
+              <h3 class="objet"><?php echo $row['Objet_Com'] ?></h3>
+              <p><?php echo $row['Texte_Produit'] ?></p>
+              <p>Réponse postée le <?php echo $row['Date_Com'] ?></p>
             </div>
           <?php } else { ?>
               <div class="question">
-                <h3 class="objet"><?php echo $row['Objet'] ?></h3>
+                <h3 class="objet"><?php echo $row['Objet_Com'] ?></h3>
                 <p><?php echo $row['Texte'] ?></p>
-                <p>Question posée par <?php echo $row['Prenom'] ?> le <?php echo $row['DateCom'] ?></p>
+                <p>Question posée par <?php echo $row['Prenom'] ?> le <?php echo $row['Date_Com'] ?></p>
               </div>
           <?php }
         } ?>
