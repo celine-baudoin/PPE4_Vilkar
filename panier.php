@@ -58,13 +58,14 @@ if (!$erreur){
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['payer'])) {
   $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   for ($i = 0; $i < count($_SESSION['panier']['Libelle_Produit']); $i++) {
-    $requete = 'DELETE FROM produits WHERE Id_Produit = '.$_SESSION['panier']['Id_Produit'][$i];
+    $req_com = 'DELETE FROM commentaires WHERE Id_Produit_Com = ' .$_SESSION['panier']['Id_Produit'][$i];
+    $req_pdt = 'DELETE FROM produits WHERE Id_Produit = '.$_SESSION['panier']['Id_Produit'][$i];
     try {
-      $bdd->exec($requete);
+      $bdd->exec($req_com);
+      $bdd->exec($req_pdt);
       echo "<p>Commande validée !</p>";
-      // $_SESSION['nb_cmd'] = $_SESSION['nb_cmd'] + 1;
     } catch(PDOException $e) {
-      echo $requete . "<br>" . $e->getMessage();
+      echo $req_pdt . "<br>" . $e->getMessage();
     }
   }
   supprimerPanier();
